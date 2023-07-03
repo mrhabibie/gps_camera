@@ -4,7 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fullscreen/fullscreen.dart';
 import 'package:gps_camera/app/utils/constants.dart';
 import 'package:localization/localization.dart';
 import 'package:share_plus/share_plus.dart';
@@ -56,9 +55,9 @@ class _GpsCameraSharePreviewPageState extends State<PreviewPage> {
                     });
 
                     if (_menuVisible) {
-                      _exitFullscreen();
+                      exitFullscreen();
                     } else {
-                      _enterFullscreen();
+                      enterFullscreen();
                     }
                   },
                   child: Container(
@@ -221,13 +220,5 @@ class _GpsCameraSharePreviewPageState extends State<PreviewPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _enterFullscreen() async {
-    await FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
-  }
-
-  Future<void> _exitFullscreen() async {
-    await FullScreen.exitFullScreen();
   }
 }

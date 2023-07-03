@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gps_camera/data/utils/constants.dart';
 import 'package:gps_camera/data/utils/flavor_settings.dart';
 import 'package:gps_camera/domain/entities/settings/setting_filename.dart';
 import 'package:gps_camera/domain/entities/settings/setting_filename_body.dart';
@@ -660,29 +659,16 @@ List<Map<String, dynamic>> defaultFn = <Map<String, dynamic>>[
   },
 ];
 
-Future<void> getDefaultFileNameSetting() async {
-  try {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? jsonString = prefs.getString(Constants.saveFileName);
-    if (jsonString != null) {
-      print('==> jsonString: $jsonString');
-      defaultFilename = SettingFilename.fromRawJson(jsonString);
-    }
-  } catch (e) {
-    print('==> getDefaultFileNameSetting: $e');
-  }
+void enterFullscreen() {
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.immersiveSticky,
+    overlays: <SystemUiOverlay>[
+      SystemUiOverlay.top,
+      SystemUiOverlay.bottom,
+    ],
+  );
 }
 
-Future<void> setDefaultFileNameSetting(
-    SettingFilename value, bool isRewrite) async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? jsonString = prefs.getString(Constants.saveFileName);
-  print('==> jsonString: $jsonString');
-  if (jsonString == null || isRewrite) {
-    prefs.setString(Constants.saveFileName, value.toRawJson()).then((_) {
-      print('==> jsonString is saved');
-    }).onError((error, stackTrace) {
-      print('==> setDefaultFileNameSetting: $error || stackTrace: $stackTrace');
-    });
-  }
+void exitFullscreen() {
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }

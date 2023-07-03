@@ -5,7 +5,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fullscreen/fullscreen.dart';
 import 'package:geocoding/geocoding.dart' as Geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:gps_camera/app/page/main/preview.dart';
@@ -173,7 +172,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
         _zoomText.add((_maxAvailZoom / 2).toStringAsFixed(1));
         _zoomText.add(_maxAvailZoom.toStringAsFixed(1));
 
-        _enterFullscreen();
+        enterFullscreen();
 
         _getUserLocation().then((_) {
           _getUserAddress().then((_) {
@@ -371,14 +370,6 @@ class _GpsCameraPageState extends State<MainCameraPage>
     }
   }
 
-  Future<void> _enterFullscreen() async {
-    await FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
-  }
-
-  Future<void> _exitFullscreen() async {
-    await FullScreen.exitFullScreen();
-  }
-
   Future<void> _getAvailableCameras() async {
     _cameras = await availableCameras();
   }
@@ -472,7 +463,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
       return Future.value(false);
     }
 
-    _exitFullscreen();
+    exitFullscreen();
 
     return Future.value(true);
   }
@@ -690,14 +681,14 @@ class _GpsCameraPageState extends State<MainCameraPage>
                                   onPressed:
                                       !_isTakingPicture && _timerCount <= 0
                                           ? () async {
-                                              _exitFullscreen();
+                                              exitFullscreen();
 
                                               var result =
                                                   await Navigator.of(context)
                                                       .pushNamed(
                                                           Pages.customFileName);
                                               if (result != null) {
-                                                _enterFullscreen();
+                                                enterFullscreen();
                                               }
                                             }
                                           : null,
@@ -869,7 +860,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
                           children: <Widget>[
                             GestureDetector(
                               onTap: () async {
-                                _exitFullscreen();
+                                exitFullscreen();
 
                                 var result =
                                     await Navigator.of(context).pushNamed(
@@ -880,7 +871,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
                                 if (result != null) {
                                   _getGallery();
 
-                                  _enterFullscreen();
+                                  enterFullscreen();
                                 }
                               },
                               child: Container(
@@ -982,7 +973,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
                                     onPressed:
                                         !_isTakingPicture && _timerCount <= 0
                                             ? () async {
-                                                _exitFullscreen();
+                                                exitFullscreen();
 
                                                 var result =
                                                     await Navigator.of(context)
@@ -990,7 +981,7 @@ class _GpsCameraPageState extends State<MainCameraPage>
                                                             Pages.saveFolder);
                                                 if (result != null &&
                                                     result is List<dynamic>) {
-                                                  _enterFullscreen();
+                                                  enterFullscreen();
 
                                                   _getGallery();
 
