@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "294806368332",
+    "project_id": "kamera-gps-8991d",
+    "storage_bucket": "kamera-gps-8991d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294806368332:android:56a5d6eb880bd07c5604e9",
+        "android_client_info": {
+          "package_name": "id.bestprogramsolution.gps_camera.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294806368332-h26j74qogampoothktg09cpr98kut9ah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.bestprogramsolution.gps_camera.dev",
+            "certificate_hash": "7b40880e2f6032b87da8fe7be97cb3dc57a6e383"
+          }
+        },
+        {
+          "client_id": "294806368332-leh4oufn2rpm79rihi5n2t12v5iu4nmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCigtFsRuq2YiEseeL3-zmw3XZi_hVUl0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294806368332-leh4oufn2rpm79rihi5n2t12v5iu4nmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294806368332:android:5a27451bc79a81b35604e9",
+        "android_client_info": {
+          "package_name": "id.bestprogramsolution.gps_camera.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294806368332-d741sl3sc3q4rmdr3jekfeicko1sl41j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.bestprogramsolution.gps_camera.free",
+            "certificate_hash": "7b40880e2f6032b87da8fe7be97cb3dc57a6e383"
+          }
+        },
+        {
+          "client_id": "294806368332-leh4oufn2rpm79rihi5n2t12v5iu4nmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCigtFsRuq2YiEseeL3-zmw3XZi_hVUl0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294806368332-leh4oufn2rpm79rihi5n2t12v5iu4nmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
